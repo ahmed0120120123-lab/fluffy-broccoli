@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ahmed Galal | Python Developer</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #1b1b1b;
+            color: white;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        section {
+            scroll-margin-top: 80px;
+        }
+
+
+        /* =========================  COLORS
+        ========================= */
+
+        :root {
+            --yellow: #ffd83d;
+            --yellow-dark: #e8bd25;
+            --black: #151515;
+            --dark: #1b1b1b;
+            --card: #252525;
+            --border: #353535;
+            --gray: #b8b8b8;
+        }
+
+
+        /* =========================  NAVBAR
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            background: rgba(21, 21, 21, 0.96);
+
+            border-bottom: 1px solid var(--border);
+
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+
+            padding: 18px 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+        }
+
+        .logo span {
+            color: var(--yellow);
+        }
+
+        .nav-links {
+            list-style: none;
+
+            display: flex;
+
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: #ddd;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--yellow);
+        }
+
+
+        /* =========================
+           HOME
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 150px 30px 80px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 60px;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .intro {
+            color: var(--yellow);
+
+            font-size: 20px;
+
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 8vw, 100px);
+
+            line-height: 0.95;
+
+            font-weight: 900;
+
+            letter-spacing: -4px;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 25px;
+        }
+
+        .hero-description {
+            color: var(--gray);
+
+            font-size: 17px;
+
+            max-width: 650px;
+        }
+
+
+        /* =========================
+           PROFILE IMAGE
+        ========================= */
+
+        .hero-image {
+
+            width: 330px;
+            height: 330px;
+
+            flex-shrink: 0;
+
+            padding: 8px;
+
+            border: 5px solid var(--yellow);
+
+            border-radius: 50%;
+
+            background: #222;
+
+            box-shadow: 0 0 40px rgba(255, 216, 61, 0.12);
+        }
+
+        .hero-image img {
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            display: block;
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .hero-buttons {
+
+            display: flex;
+
+            gap: 15px;
+
+            margin-top: 35px;
+        }
+
+        .btn {
+
+            display: inline-block;
+
+            padding: 14px 25px;
+
+            background: var(--yellow);
+
+            color: #111;
+
+            font-weight: bold;
+
+            border-radius: 4px;
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+
+            background: var(--yellow-dark);
+
+            transform: translateY(-3px);
+        }
+
+        .btn.secondary {
+
+            background: transparent;
+
+            color: var(--yellow);
+
+            border: 1px solid var(--yellow);
+        }
+
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
+
+        .section {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 100px 30px;
+        }
+
+        .section-title {
+
+            text-align: center;
+
+            margin-bottom: 50px;
+        }
+
+        .section-title p {
+
+            color: var(--yellow);
+
+            font-size: 13px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 3px;
+        }
+
+        .section-title h2 {
+
+            font-size: 42px;
+
+            font-weight: 800;
+
+            margin-top: 5px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        #about {
+
+            background: #202020;
+        }
+
+        .about-content {
+
+            max-width: 850px;
+
+            margin: auto;
+        }
+
+        .about-content p {
+
+            color: var(--gray);
+
+            font-size: 17px;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           CARDS
+        ========================= */
+
+        .cards {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .card {
+
+            background: var(--card);
+
+            padding: 30px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 5px;
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+
+            transform: translateY(-7px);
+
+            border-color: var(--yellow);
+        }
+
+        .card h3 {
+
+            color: white;
+
+            font-size: 21px;
+
+            margin-bottom: 12px;
+        }
+
+        .card p {
+
+            color: var(--gray);
+
+            font-size: 15px;
+        }
+
+        .card span {
+
+            display: inline-block;
+
+            margin-top: 18px;
+
+            padding: 5px 10px;
+
+            background: var(--yellow);
+
+            color: #111;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            border-radius: 3px;
+        }
+
+
+        /* =========================
+           EDUCATION
+        ========================= */
+
+        #education {
+
+            background: #1b1b1b;
+        }
+
+
+        /* =========================
+           EXPERIENCE
+        ========================= */
+
+        #experience {
+
+            background: #202020;
+        }
+
+        .experience-card {
+
+            max-width: 850px;
+
+            margin: auto;
+
+            background: var(--card);
+
+            padding: 35px;
+
+            border-left: 5px solid var(--yellow);
+
+            border-radius: 4px;
+        }
+
+        .experience-card h3 {
+
+            color: var(--yellow);
+
+            font-size: 25px;
+
+            margin-bottom: 5px;
+        }
+
+        .experience-card h4 {
+
+            font-size: 17px;
+
+            margin-bottom: 15px;
+        }
+
+        .experience-card p {
+
+            color: var(--gray);
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        #skills {
+
+            background: #1b1b1b;
+        }
+
+        .skills-container {
+
+            max-width: 900px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+        }
+
+        .skill {
+
+            background: var(--yellow);
+
+            color: #111;
+
+            padding: 12px 22px;
+
+            border-radius: 3px;
+
+            font-weight: bold;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+
+            transform: translateY(-5px);
+
+            background: white;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        #projects {
+
+            background: #202020;
+        }
+
+        .project-card {
+
+            background: var(--card);
+
+            padding: 30px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 5px;
+
+            min-height: 230px;
+
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+
+            transform: translateY(-7px);
+
+            border-color: var(--yellow);
+        }
+
+        .project-card h3 {
+
+            color: var(--yellow);
+
+            font-size: 21px;
+
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+
+            color: var(--gray);
+
+            font-size: 15px;
+        }
+
+        .project-status {
+
+            display: inline-block;
+
+            margin-top: 20px;
+
+            padding: 6px 12px;
+
+            background: var(--yellow);
+
+            color: #111;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            border-radius: 3px;
+        }
+
+
+        /* =========================
+           ACTIVITIES
+        ========================= */
+
+        #activities {
+
+            background: #1b1b1b;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        #contact {
+
+            background: #202020;
+
+            text-align: center;
+        }
+
+        .contact-description {
+
+            color: var(--gray);
+
+            max-width: 650px;
+
+            margin: auto;
+
+            margin-bottom: 35px;
+        }
+
+        .contact-links {
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 15px;
+        }
+
+        .contact-links a {
+
+            padding: 13px 25px;
+
+            border: 1px solid var(--yellow);
+
+            color: var(--yellow);
+
+            border-radius: 4px;
+
+            transition: 0.3s;
+        }
+
+        .contact-links a:hover {
+
+            background: var(--yellow);
+
+            color: #111;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 30px;
+
+            background: #151515;
+
+            color: #777;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           SCROLL ANIMATION
+        ========================= */
+
+        .section {
+
+            opacity: 0;
+
+            transform: translateY(30px);
+
+            transition: opacity 0.7s ease,
+                        transform 0.7s ease;
+        }
+
+        .section.show {
+
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .hero {
+
+                flex-direction: column-reverse;
+
+                text-align: center;
+
+                justify-content: center;
+            }
+
+            .hero-image {
+
+                width: 260px;
+
+                height: 260px;
+            }
+
+            .hero-description {
+
+                margin: auto;
+            }
+
+            .hero-buttons {
+
+                justify-content: center;
+            }
+
+            .cards {
+
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .navbar {
+
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+
+                display: none;
+            }
+
+            .hero {
+
+                padding: 130px 20px 80px;
+            }
+
+            .hero-image {
+
+                width: 210px;
+
+                height: 210px;
+            }
+
+            .hero h1 {
+
+                font-size: 52px;
+
+                letter-spacing: -3px;
+            }
+
+            .hero h2 {
+
+                font-size: 20px;
+            }
+
+            .hero-buttons {
+
+                flex-direction: column;
+
+                align-items: center;
+            }
+
+            .section {
+
+                padding: 75px 20px;
+            }
+
+            .section-title h2 {
+
+                font-size: 34px;
+            }
+
+            .cards {
+
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+
+                flex-direction: column;
+
+                align-items: center;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                Ahmed<span>.</span>
+            </div>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#education">Education</a>
+                </li>
+
+                <li>
+                    <a href="#experience">Experience</a>
+                </li>
+
+                <li>
+                    <a href="#skills">Skills</a>
+                </li>
+
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
+
+                <li>
+                    <a href="#activities">Activities</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         HOME
+    ========================== -->
+
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <p class="intro">
+                Hello, I'm
+            </p>
+
+            <h1>
+                Ahmed Galal
+            </h1>
+
+            <h2>
+                Python Developer & Data Enthusiast
+            </h2>
+
+            <p class="hero-description">
+
+                I am a technology enthusiast interested in
+                Python, SQL, data engineering, automation,
+                databases, and IT solutions.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a href="#projects" class="btn">
+                    View My Projects
+                </a>
+
+                <a href="#contact" class="btn secondary">
+                    Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- YOUR PHOTO -->
+
+        <div class="hero-image">
+
+            <img
+                src="images/profile.jpg"
+                alt="Ahmed Galal"
+            >
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section id="about" class="section">
+
+        <div class="section-title">
+
+            <p>Get To Know Me</p>
+
+            <h2>
+                About Me
+            </h2>
+
+        </div>
+
+
+        <div class="about-content">
+
+            <p>
+
+                I am a technology student and aspiring
+                Python Developer with a strong interest
+                in programming, databases, data engineering,
+                automation, and IT solutions.
+
+            </p>
+
+            <p>
+
+                I am currently participating in the
+                Digital Egypt Pioneers Initiative (DEPI),
+                Round 5, where I am developing my technical
+                and professional skills.
+
+            </p>
+
+            <p>
+
+                Alongside my technical development, I am
+                actively involved in student activities
+                and enjoy helping other students learn
+                programming and technology.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EDUCATION
+    ========================== -->
+
+    <section id="education" class="section">
+
+        <div class="section-title">
+
+            <p>My Background</p>
+
+            <h2>
+                Education & Training
+            </h2>
+
+        </div>
+
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <h3>
+                    Higher Technological Institute
+                </h3>
+
+                <p>
+                    10th of Ramadan City
+                </p>
+
+                <span>
+                    Current Student
+                </span>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Digital Egypt Pioneers Initiative
+                </h3>
+
+                <p>
+                    DEPI — Round 5
+                </p>
+
+                <span>
+                    Current Training
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EXPERIENCE
+    ========================== -->
+
+    <section id="experience" class="section">
+
+        <div class="section-title">
+
+            <p>My Experience</p>
+
+            <h2>
+                Experience
+            </h2>
+
+        </div>
+
+
+        <div class="experience-card">
+
+            <h3>
+                IT Trainee
+            </h3>
+
+            <h4>
+                Al-Shams Pharma — Zagazig
+            </h4>
+
+            <p>
+
+                Completed practical IT training in a
+                pharmaceutical company environment,
+                gaining exposure to IT operations,
+                technical support, troubleshooting,
+                and workplace technology.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+    ========================== -->
+
+    <section id="skills" class="section">
+
+        <div class="section-title">
+
+            <p>What I Work With</p>
+
+            <h2>
+                Technical Skills
+            </h2>
+
+        </div>
+
+
+        <div class="skills-container">
+
+            <div class="skill">
+                Python
+            </div>
+
+            <div class="skill">
+                SQL
+            </div>
+
+            <div class="skill">
+                Data Engineering
+            </div>
+
+            <div class="skill">
+                ETL
+            </div>
+
+            <div class="skill">
+                Database Management
+            </div>
+
+            <div class="skill">
+                Data Automation
+            </div>
+
+            <div class="skill">
+                IT Support
+            </div>
+
+            <div class="skill">
+                Problem Solving
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section id="projects" class="section">
+
+        <div class="section-title">
+
+            <p>My Work</p>
+
+            <h2>
+                Projects
+            </h2>
+
+        </div>
+
+
+        <div class="cards">
+
+
+            <div class="project-card">
+
+                <h3>
+                    Python Project
+                </h3>
+
+                <p>
+
+                    This project section will contain
+                    one of my Python projects, including
+                    the project description, technologies,
+                    and GitHub repository.
+
+                </p>
+
+                <span class="project-status">
+                    Coming Soon
+                </span>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <h3>
+                    SQL Database Project
+                </h3>
+
+                <p>
+
+                    A database project demonstrating
+                    SQL queries, database design,
+                    data management, and optimization.
+
+                </p>
+
+                <span class="project-status">
+                    Coming Soon
+                </span>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <h3>
+                    ETL Data Pipeline
+                </h3>
+
+                <p>
+
+                    A data engineering project focused
+                    on extracting, transforming, and
+                    loading data using Python and SQL.
+
+                </p>
+
+                <span class="project-status">
+                    Coming Soon
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ACTIVITIES
+    ========================== -->
+
+    <section id="activities" class="section">
+
+        <div class="section-title">
+
+            <p>Beyond Coding</p>
+
+            <h2>
+                Activities & Leadership
+            </h2>
+
+        </div>
+
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <h3>
+                    Student Union
+                </h3>
+
+                <p>
+
+                    Active participation in student union
+                    activities and initiatives.
+
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Competitions & Events
+                </h3>
+
+                <p>
+
+                    Participated in competitions and
+                    technology-related events, including
+                    the Akhbar El Youm Exhibition.
+
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Student Support
+                </h3>
+
+                <p>
+
+                    Currently helping students learn
+                    programming and supporting new
+                    student batches.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact" class="section">
+
+        <div class="section-title">
+
+            <p>Let's Connect</p>
+
+            <h2>
+                Contact Me
+            </h2>
+
+        </div>
+
+
+        <p class="contact-description">
+
+            Interested in working together,
+            discussing a project, or connecting
+            about technology?
+
+            Feel free to contact me.
+
+        </p>
+
+
+        <div class="contact-links">
+
+            <!-- Replace these later -->
+
+            <a href="mailto:YOUR_EMAIL@gmail.com">
+                Email
+            </a>
+
+            <a href="YOUR_GITHUB_LINK" target="_blank">
+                GitHub
+            </a>
+
+            <a href="YOUR_LINKEDIN_LINK" target="_blank">
+                LinkedIn
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Ahmed Galal. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /* =========================
+           SCROLL ANIMATION
+        ========================== */
+
+        const sections =
+            document.querySelectorAll(".section");
+
+
+        const observer =
+            new IntersectionObserver(
+
+                function(entries) {
+
+                    entries.forEach(function(entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("show");
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.15
+                }
+
+            );
+
+
+        sections.forEach(function(section) {
+
+            observer.observe(section);
+
+        });
+
+
+        /* =========================
+           CONSOLE MESSAGE
+        ========================== */
+
+        console.log(
+            "Ahmed Galal Portfolio is running successfully!"
+        );
+
+    </script>
+
+
+</body>
+
+</html>
